@@ -1,12 +1,19 @@
-const a = 5;
-const b = 2;
-let myName = "CSD";
+const cal = {
+  add: function (num1, num2) {
+    console.log(num1 + num2);
+  },
+  minus: function (num1, num2) {
+    console.log(num1 - num2);
+  },
+  multip: function (num1, num2) {
+    console.log(num1 * num2);
+  },
+  divide: function (num1, num2) {
+    console.log(num1 / num2);
+  },
+};
 
-console.log(a + b);
-console.log(a * b);
-console.log(a / b);
-console.log("Hello" + myName);
-
-myName = "Choi Seong Dae";
-
-console.log("your new name is " + myName);
+cal.add(5, 6);
+cal.minus(5, 6);
+cal.multip(5, 6);
+cal.divide(5, 6);
