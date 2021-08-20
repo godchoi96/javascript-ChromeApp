@@ -1,14 +1,13 @@
 const title = document.querySelector("div.hello:first-child h1");
 
 function handleTitleClick() {
-  const currentColor = title.style.color;
-  let newColor;
-  if (currentColor === "blue") {
-    newColor = "tomato";
+  const clickedClass = "clicked";
+  if (title.classList.contains(clickedClass)) {
+    title.classList.remove(clickedClass);
   } else {
-    newColor = "blue";
+    title.classList.add(clickedClass);
   }
-  title.style.color = newColor;
+  // 위 다섯 문장을 title.classList.toggle("clicked"); 로 대체 가능
 }
 
 title.addEventListener("click", handleTitleClick);
