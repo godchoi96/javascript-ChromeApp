@@ -17,8 +17,9 @@ function deleteTodo(event) {
 
 function paintTodo(newTodo) {
   const li = document.createElement("li");
+  li.id = newTodo.id;
   const span = document.createElement("span");
-  span.innerText = newTodo;
+  span.innerText = newTodo.text;
   const button = document.createElement("button");
   button.innerText = "❌"; // 이모지 추가 window + .
   button.addEventListener("click", deleteTodo); // 클릭하면 해당 이벤트가 발생
@@ -31,8 +32,12 @@ function handleToDoSubmit(event) {
   event.preventDefault();
   const newTodo = toDoInput.value;
   toDoInput.value = "";
-  toDos.push(newTodo); // newTodo를 toDos에 저장
-  paintTodo(newTodo);
+  const newTodoObj = {
+    text: newTodo,
+    id: Date.now(),
+  }; // 입력한 것에 대해 Date.now를 통한 랜덤값을 배정받음으로 id 값을 입력
+  toDos.push(newTodoObj);
+  paintTodo(newTodoObj);
   saveToDos();
 }
 
