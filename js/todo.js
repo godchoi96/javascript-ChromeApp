@@ -4,7 +4,7 @@ const toDoList = document.getElementById("todo-list");
 
 const TODOS_KEY = "todos";
 
-const toDos = []; // newTodo를 저장할 수 있는 배열 생성
+let toDos = []; // newTodo를 저장할 수 있는 배열 생성. const로 지정할 경우 새로고침을 하면 기존의 localStorage에 있는 값이 사라지고 덮어지는 현상이 발생
 
 function saveToDos() {
   localStorage.setItem(TODOS_KEY, JSON.stringify(toDos)); // localStorage에 있는 것들 배열로 변환
@@ -40,8 +40,8 @@ toDoForm.addEventListener("submit", handleToDoSubmit);
 
 const savedToDos = localStorage.getItem(TODOS_KEY);
 
-console.log(savedToDos);
 if (savedToDos !== null) {
   const parseToDos = JSON.parse(savedToDos);
-  parseToDos.forEach((item) => console.log("this is the turn of ", item)); // 배열 안에 있는 element를 각각 실행시켜줌. 각 입력된 element에 this is the turn 0f를 넣어줌
+  toDos = parseToDos;
+  parseToDos.forEach(paintTodo); // 배열 안에 있는 element를 각각 실행시켜줌.
 }
