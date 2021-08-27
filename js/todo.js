@@ -13,6 +13,8 @@ function saveToDos() {
 function deleteTodo(event) {
   const li = event.target.parentElement; // 어느 li가 실행되었는지 확인할 수 있음
   li.remove(); // 생성한 button 태그를 누르면 실행
+  toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
+  saveToDos();
 }
 
 function paintTodo(newTodo) {
