@@ -1,4 +1,4 @@
-#
+#javascript-ChromeApp
 
 자바 스크립트를 활용한 구글 크롬 애플리케이션입니다.
 
